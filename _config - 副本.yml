@@ -78,8 +78,6 @@ theme: landscape
 deploy: 
   type: git
   #elfwalk改为你的github用户名
-  repository: 
-    github: https://github.com/maidouofgithub/maidouofgithub.github.io.git
-    coding: git@git.coding.net:maidouofgit/blog.git
+  repository: https://github.com/maidouofgithub/maidouofgithub.github.io.git
   branch: master
   
