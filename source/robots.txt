@@ -1,0 +1,2 @@
+Sitemap: http://blog.quick360.tech/sitemap.xml
+Sitemap: http://blog.quick360.tech/baidusitemap.xml

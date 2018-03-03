@@ -2,6 +2,7 @@
 title: Git 常用指令备注
 date: 2018-01-31 20:03
 tags:
+- Git
 ---
 原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8394705.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8394705.html</a>
 <div>1&#12289;&#25171;&#24320;git hash&#21629;&#20196;&#31383;&#21475;&#65307;</div>
