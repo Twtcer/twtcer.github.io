@@ -3,7 +3,7 @@ title: windows添加右键菜单-此处运行CMD
 date: 2018-01-24 16:28
 tags:
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8342290.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8342290.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8342290.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8342290.html</a>
 <p>&#27493;&#39588;&#65306;<br>
 1&#12289;&#21019;&#24314;&#19968;&#20010;&#35760;&#20107;&#26412;&#25991;&#20214;&#65292;&#23558;&#20197;&#19979;&#25991;&#23383;&#22797;&#21046;&#36827;&#21435;&#65292;&#28982;&#21518;&#20445;&#23384;&#12290;<br>
 Windows Registry Editor Version 5.00<br>

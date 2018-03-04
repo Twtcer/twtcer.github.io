@@ -3,7 +3,7 @@ title: Git之别名配置
 date: 2018-01-08 10:34
 tags:
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8241361.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8241361.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8241361.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8241361.html</a>
 <p><span style="font-size: 18px">### &#30001;&#20110;Git&#25351;&#20196;&#23481;&#26131;&#25171;&#38169;&#65292;&#19979;&#38754;&#21363;&#26159;&#21457;&#25381;&#25042;&#20154;&#30284;&#30340;&#26041;&#27861;&#65306;</span></p>
 <p><span style="font-size: 14pt">##&nbsp;git status&nbsp;</span></p>
 <p>&nbsp;</p>

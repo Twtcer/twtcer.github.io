@@ -3,7 +3,7 @@ title: Hexo发布到Github丢失readme和CNAME解决方案
 date: 2018-01-11 17:46
 tags:
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8269636.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8269636.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8269636.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8269636.html</a>
 <h2 id="方法一推荐将需要上传至github的内容放在source文件夹例如cnamefavicon.icoimages等这样在-hexo-d-之后就不会被删除了">&#26041;&#27861;&#19968;&#65288;&#25512;&#33616;&#65289;&#65306;&#23558;&#38656;&#35201;&#19978;&#20256;&#33267;github&#30340;&#20869;&#23481;&#25918;&#22312;source&#25991;&#20214;&#22841;&#65292;&#20363;&#22914;CNAME&#12289;favicon.ico&#12289;images&#31561;&#65292;&#36825;&#26679;&#22312; hexo d &#20043;&#21518;&#23601;&#19981;&#20250;&#34987;&#21024;&#38500;&#20102;&#12290;</h2>
 <h2 id="方法二安装插件实现永久保留.">&#26041;&#27861;&#20108;&#65306;&#23433;&#35013;&#25554;&#20214;&#23454;&#29616;&#27704;&#20037;&#20445;&#30041;.</h2>
 <h3 id="npm-install-hexo-generator-cname---save-安装此插件实现">$ npm install hexo-generator-cname --save //&#23433;&#35013;&#27492;&#25554;&#20214;&#23454;&#29616;</h3>

@@ -3,7 +3,7 @@ title: Github博客多地同步文章
 date: 2018-01-07 21:55
 tags:
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8202896.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8202896.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8202896.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8202896.html</a>
 <p><span style="font-size: 14pt">&#35299;&#20915;&#26041;&#26696;&#65306;</span></p>
 <p><span style="font-size: 14pt">&#12288;&#12288;&#23558;hexo&#28304;&#25991;&#20214;&#21516;&#27493;&#21040;&#21338;&#23458;&#20998;&#25903;&#65292;&#29992;hexo&#20998;&#25903;&#20316;&#20026;&#20013;&#36716;&#65292;&#20854;&#20182;&#35774;&#22791;&#38656;&#35201;&#32534;&#36753;&#26102;&#26412;&#22320;clone&#19968;&#20221;&#65292;&#23433;&#35013;hexo&#24517;&#39035;&#25991;&#20214;&#21518;&#21363;&#21487;&#37096;&#32626;</span></p>
 <p><span style="font-size: 14pt">&#20851;&#38190;&#28857;&#65306;</span></p>

@@ -3,7 +3,7 @@ title: Github 搭建个人博客
 date: 2018-01-04 20:45
 tags:
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8195861.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8195861.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8195861.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8195861.html</a>
 <h1 class="csdn_top" style="text-align: left">&#36716;&#33258; &#65306;http://hifor.net/2015/07/01/&#38646;&#22522;&#30784;&#20813;&#36153;&#25645;&#24314;&#20010;&#20154;&#21338;&#23458;-hexo-github/</h1>
 <p style="text-align: left">&nbsp;</p>
 <p style="text-align: left">&#20351;&#29992;hexo&#29983;&#25104;&#38745;&#24577;&#21338;&#23458;&#24182;&#26550;&#35774;&#22312;&#20813;&#36153;&#30340;github page&#24179;&#21488;&nbsp;</p>
