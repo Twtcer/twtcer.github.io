@@ -2,6 +2,7 @@
 title: windows添加右键菜单-此处运行CMD
 date: 2018-01-24 16:28
 tags:
+categories:
 ---
 原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8342290.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8342290.html</a>
 <p>&#27493;&#39588;&#65306;<br>

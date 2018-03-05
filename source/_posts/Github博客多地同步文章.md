@@ -2,6 +2,9 @@
 title: Github博客多地同步文章
 date: 2018-01-07 21:55
 tags:
+categories:
+  - Github
+  - Github&#21338;&#23458;&#22810;&#22320;&#21516;&#27493;&#25991;&#31456;
 ---
 原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8202896.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8202896.html</a>
 <p><span style="font-size: 14pt">&#35299;&#20915;&#26041;&#26696;&#65306;</span></p>

@@ -2,8 +2,13 @@
 title: Github博客 自定义域名
 date: 2018-01-07 21:36
 tags:
+categories:
+  - Github
+  - Github&#33258;&#23450;&#20041;&#22495;&#21517;
+  - &#22495;&#21517;
+  - &#21338;&#23458;
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8232033.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8232033.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8232033.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8232033.html</a>
 <p><span style="font-size: 18pt">&#20934;&#22791;&#24037;&#20316;</span></p>
 <ol><ol>
 <li><span style="font-size: 14pt">&#33258;&#23450;&#20041;&#22495;&#21517;&#65292;&#33258;&#34892;&#36141;&#20080;&#12290;</span></li>

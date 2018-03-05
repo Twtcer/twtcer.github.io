@@ -2,8 +2,10 @@
 title: 小米路由mini刷不死breed
 date: 2017-12-31 21:16
 tags:
+categories:
+  - &#36335;&#30001;&#21047;&#26426;
 ---
-原文地址:<a href="http://www.cnblogs.com/LandWind/articles/8159045.html" style="font-size: 200%;color: #000;">http://www.cnblogs.com/LandWind/articles/8159045.html</a>
+原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8159045.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8159045.html</a>
 <h1><span style='font-family: "Microsoft YaHei"; font-size: 14pt'>&#20934;&#22791;</span></h1>
 <h1><span style="font-size: 14pt">&nbsp;</span></h1>
 <ol>

@@ -2,6 +2,8 @@
 title: Hexo发布到Github丢失readme和CNAME解决方案
 date: 2018-01-11 17:46
 tags:
+categories:
+  - Github
 ---
 原文地址:</br><a href="http://www.cnblogs.com/LandWind/articles/8269636.html" style="font-size: 24px;color: #9900FF;">http://www.cnblogs.com/LandWind/articles/8269636.html</a>
 <h2 id="方法一推荐将需要上传至github的内容放在source文件夹例如cnamefavicon.icoimages等这样在-hexo-d-之后就不会被删除了">&#26041;&#27861;&#19968;&#65288;&#25512;&#33616;&#65289;&#65306;&#23558;&#38656;&#35201;&#19978;&#20256;&#33267;github&#30340;&#20869;&#23481;&#25918;&#22312;source&#25991;&#20214;&#22841;&#65292;&#20363;&#22914;CNAME&#12289;favicon.ico&#12289;images&#31561;&#65292;&#36825;&#26679;&#22312; hexo d &#20043;&#21518;&#23601;&#19981;&#20250;&#34987;&#21024;&#38500;&#20102;&#12290;</h2>
