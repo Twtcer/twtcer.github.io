@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '312FON8OID',
+      apiKey: '',
+      indexName: 'blogIndex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
+    }
+  };
+</script>
+
+  <meta name="description" content="原文地址:http://www.cnblogs.com/LandWind/articles/8232033.html &amp;#20934;&amp;#22791;&amp;#24037;&amp;#20316;  &amp;#33258;&amp;#23450;&amp;#20041;&amp;#22495;&amp;#21517;&amp;#65292;&amp;#33258;&amp;#34892;&amp;#36141;&amp;#20080;&amp;#12290; &amp;#24050;&amp;#32463;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github博客 自定义域名">
+<meta property="og:url" content="http://maidouofgithub.github.io/2018/01/07/Github博客 自定义域名/index.html">
+<meta property="og:site_name" content="LandWind&#39;s Blog">
+<meta property="og:description" content="原文地址:http://www.cnblogs.com/LandWind/articles/8232033.html &amp;#20934;&amp;#22791;&amp;#24037;&amp;#20316;  &amp;#33258;&amp;#23450;&amp;#20041;&amp;#22495;&amp;#21517;&amp;#65292;&amp;#33258;&amp;#34892;&amp;#36141;&amp;#20080;&amp;#12290; &amp;#24050;&amp;#32463;&amp;#">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/630623/201801/630623-20180107212805799-1361493906.png">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/630623/201801/630623-20180107213258706-265182187.png">
+<meta property="og:updated_time" content="2019-08-23T07:29:38.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Github博客 自定义域名">
+<meta name="twitter:description" content="原文地址:http://www.cnblogs.com/LandWind/articles/8232033.html &amp;#20934;&amp;#22791;&amp;#24037;&amp;#20316;  &amp;#33258;&amp;#23450;&amp;#20041;&amp;#22495;&amp;#21517;&amp;#65292;&amp;#33258;&amp;#34892;&amp;#36141;&amp;#20080;&amp;#12290; &amp;#24050;&amp;#32463;&amp;#">
+<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/630623/201801/630623-20180107212805799-1361493906.png">
+  <link rel="canonical" href="http://maidouofgithub.github.io/2018/01/07/Github博客 自定义域名/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Github博客 自定义域名 | LandWind's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LandWind's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">每天进步一点</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Navigationsleiste an/ausschalten">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://maidouofgithub.github.io/2018/01/07/Github博客 自定义域名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LandWind">
+      <meta itemprop="description" content="记录生活点滴">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LandWind's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Github博客 自定义域名
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              
+                
+              
+
+              <time title="Erstellt: 2018-01-07 21:36:00" itemprop="dateCreated datePublished" datetime="2018-01-07T21:36:00+08:00">2018-01-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-08-23 15:29:38" itemprop="dateModified" datetime="2019-08-23T15:29:38+08:00">2019-08-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Github/Github-33258-23450-20041-22495-21517/" itemprop="url" rel="index"><span itemprop="name">Github&#33258;&#23450;&#20041;&#22495;&#21517;</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>原文地址:<br><a href="http://www.cnblogs.com/LandWind/articles/8232033.html" style="font-size: 24px;color: #9900FF;" target="_blank" rel="noopener">http://www.cnblogs.com/LandWind/articles/8232033.html</a></p>
+<p></p><p><span style="font-size: 18pt">&#20934;&#22791;&#24037;&#20316;</span></p><p></p>
+<p><ol><ol></ol></ol></p>
+<p><li><span style="font-size: 14pt">&#33258;&#23450;&#20041;&#22495;&#21517;&#65292;&#33258;&#34892;&#36141;&#20080;&#12290;</span></li></p>
+<p><li style="text-align: left"><span style="font-size: 14pt">&#24050;&#32463;&#25645;&#24314;&#22909;&#30340;hexo&#21338;&#23458;(&#33509;&#19981;&#20250;&#25645;&#24314;&#35831;&#30475;&#19978;&#25991;&#65306;(<a class="postTitle2" style="font-size: 2em" id="cb_post_title_url" href="http://www.cnblogs.com/LandWind/articles/8195861.html" target="_blank" rel="noopener">Github &#25645;&#24314;&#20010;&#20154;&#21338;&#23458;</a>)</span></li><br></p>
+<p></p><p><span style="font-size: 18pt">&#24320;&#22987;</span></p><p></p>
+<ul><br><li><span style="font-size: 18.6667px">&#22495;&#21517;&#21830;&#21518;&#21488;&#28155;&#21152;CNAME&#35299;&#26512;</span></li><br></ul><br><p>&#12288;&#12288;<img style="font-size: 18.6667px" src="https://images2017.cnblogs.com/blog/630623/201801/630623-20180107212805799-1361493906.png" alt></p><br><ul><br><li><span style="font-size: 18px">github &#21338;&#23458;&#28155;&#21152;<span class="final-path">CNAME&#25991;&#20214;(<span style="background-color: #ff0000; color: #ffffff">&#27880;&#24847;&#27809;&#26377;&#21518;&#32512;</span>)&#65292;&#20869;&#23481;&#20026;&#20320;&#33258;&#23450;&#20041;&#30340;&#22495;&#21517;</span></span></li><br></ul><br><p><img src="https://images2017.cnblogs.com/blog/630623/201801/630623-20180107213258706-265182187.png" alt></p><br><ul><br><li><span style="font-size: 18px">&#31561;&#24453;&#19968;&#20250;&#21047;&#26032;&#23581;&#35797;&#35775;&#38382;</span></li><br><li><span style="font-size: 18px">Success&#65281;</span></li><br></ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/04/Github 搭建个人博客/" rel="next" title="Github 搭建个人博客">
+                  <i class="fa fa-chevron-left"></i> Github 搭建个人博客
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/01/07/Github博客多地同步文章/" rel="prev" title="Github博客多地同步文章">
+                  Github博客多地同步文章 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LandWind</p>
+  <div class="site-description motion-element" itemprop="description">记录生活点滴</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">Kategorien</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LandWind</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/muse.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

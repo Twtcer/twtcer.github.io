@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '312FON8OID',
+      apiKey: '',
+      indexName: 'blogIndex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
+    }
+  };
+</script>
+
+  <meta name="description" content="疑问：远程有两个分支，如何在本地同步、开发？ 一、远程仓库有master和dev分支  克隆代码git clone https://github.com/master-dev.git  这个git路径是无效的，示例而已 查看所有分支git branch –all  默认有了dev和master分支，所以会看到如下三个分支master[本地主分支] origin/master[远程主分支] orig">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git远程、本地分支的同步">
+<meta property="og:url" content="http://maidouofgithub.github.io/2018/01/08/git远程、本地分支的同步/index.html">
+<meta property="og:site_name" content="LandWind&#39;s Blog">
+<meta property="og:description" content="疑问：远程有两个分支，如何在本地同步、开发？ 一、远程仓库有master和dev分支  克隆代码git clone https://github.com/master-dev.git  这个git路径是无效的，示例而已 查看所有分支git branch –all  默认有了dev和master分支，所以会看到如下三个分支master[本地主分支] origin/master[远程主分支] orig">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-23T07:29:38.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git远程、本地分支的同步">
+<meta name="twitter:description" content="疑问：远程有两个分支，如何在本地同步、开发？ 一、远程仓库有master和dev分支  克隆代码git clone https://github.com/master-dev.git  这个git路径是无效的，示例而已 查看所有分支git branch –all  默认有了dev和master分支，所以会看到如下三个分支master[本地主分支] origin/master[远程主分支] orig">
+  <link rel="canonical" href="http://maidouofgithub.github.io/2018/01/08/git远程、本地分支的同步/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>git远程、本地分支的同步 | LandWind's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LandWind's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">每天进步一点</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Navigationsleiste an/ausschalten">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://maidouofgithub.github.io/2018/01/08/git远程、本地分支的同步/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LandWind">
+      <meta itemprop="description" content="记录生活点滴">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LandWind's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">git远程、本地分支的同步
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              
+                
+              
+
+              <time title="Erstellt: 2018-01-08 10:23:38" itemprop="dateCreated datePublished" datetime="2018-01-08T10:23:38+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-08-23 15:29:38" itemprop="dateModified" datetime="2019-08-23T15:29:38+08:00">2019-08-23</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>疑问：远程有两个分支，如何在本地同步、开发？</p>
+<p>一、远程仓库有master和dev分支</p>
+<ol>
+<li>克隆代码<br>git clone <a href="https://github.com/master-dev.git" target="_blank" rel="noopener">https://github.com/master-dev.git</a>  <h1 id="这个git路径是无效的，示例而已"><a href="#这个git路径是无效的，示例而已" class="headerlink" title="这个git路径是无效的，示例而已"></a>这个git路径是无效的，示例而已</h1></li>
+<li>查看所有分支<br>git branch –all  <h1 id="默认有了dev和master分支，所以会看到如下三个分支"><a href="#默认有了dev和master分支，所以会看到如下三个分支" class="headerlink" title="默认有了dev和master分支，所以会看到如下三个分支"></a>默认有了dev和master分支，所以会看到如下三个分支</h1><h1 id="master-本地主分支-origin-master-远程主分支-origin-dev-远程开发分支"><a href="#master-本地主分支-origin-master-远程主分支-origin-dev-远程开发分支" class="headerlink" title="master[本地主分支] origin/master[远程主分支] origin/dev[远程开发分支]"></a>master[本地主分支] origin/master[远程主分支] origin/dev[远程开发分支]</h1><h1 id="新克隆下来的代码默认master和origin-master是关联的，也就是他们的代码保持同步"><a href="#新克隆下来的代码默认master和origin-master是关联的，也就是他们的代码保持同步" class="headerlink" title="新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步"></a>新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步</h1><h1 id="但是origin-dev分支在本地没有任何的关联，所以我们无法在那里开发"><a href="#但是origin-dev分支在本地没有任何的关联，所以我们无法在那里开发" class="headerlink" title="但是origin/dev分支在本地没有任何的关联，所以我们无法在那里开发"></a>但是origin/dev分支在本地没有任何的关联，所以我们无法在那里开发</h1></li>
+<li>创建本地关联origin/dev的分支<br>git checkout – dev origin/dev  <h1 id="创建本地分支dev，并且和远程origin-dev分支关联，本地dev分支的初始代码和远程的dev分支代码一样"><a href="#创建本地分支dev，并且和远程origin-dev分支关联，本地dev分支的初始代码和远程的dev分支代码一样" class="headerlink" title="创建本地分支dev，并且和远程origin/dev分支关联，本地dev分支的初始代码和远程的dev分支代码一样"></a>创建本地分支dev，并且和远程origin/dev分支关联，本地dev分支的初始代码和远程的dev分支代码一样</h1>原文是：<br>git checkout dev origin/dev<br>可是产生错误：<br>error: pathspec ‘dev’ did not match any file(s) known to git.<br>error: pathspec ‘origin/dev’ did not match any file(s) known to git.<br>应该修正为：（注意中间的两个横杆）<br>git checkout – dev origin/dev<br>或者<br>git checkout -b dev origin/dev<br>其中-b表示创建并跳转至新建分支<br>即<br>git checkout -b dev origin/dev<br>等价于<br>git checkout – dev origin/dev<br>git checkout dev</li>
+</ol>
+<ol>
+<li>切换到dev分支进行开发<br>git checkout dev  # 这个是切换到dev分支，然后就是常规的开发</li>
+<li>为了更好的理解，最好继续看看下文。</li>
+</ol>
+<p>二、假设远程仓库只有mater分支</p>
+<ol>
+<li>克隆代码<br>git clone <a href="https://github.com/master-dev.git" target="_blank" rel="noopener">https://github.com/master-dev.git</a>  <h1 id="这个git路径是无效的，示例而已-1"><a href="#这个git路径是无效的，示例而已-1" class="headerlink" title="这个git路径是无效的，示例而已"></a>这个git路径是无效的，示例而已</h1></li>
+<li>查看所有分支<br>git branch –all  <h1 id="默认只有master分支，所以会看到如下两个分支"><a href="#默认只有master分支，所以会看到如下两个分支" class="headerlink" title="默认只有master分支，所以会看到如下两个分支"></a>默认只有master分支，所以会看到如下两个分支</h1><h1 id="master-本地主分支-origin-master-远程主分支"><a href="#master-本地主分支-origin-master-远程主分支" class="headerlink" title="master[本地主分支] origin/master[远程主分支]"></a>master[本地主分支] origin/master[远程主分支]</h1><h1 id="新克隆下来的代码默认master和origin-master是关联的，也就是他们的代码保持同步-1"><a href="#新克隆下来的代码默认master和origin-master是关联的，也就是他们的代码保持同步-1" class="headerlink" title="新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步"></a>新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步</h1></li>
+<li>创建本地新的dev分支<br>git branch dev  # 创建本地分支<br>git branch  # 查看分支<h1 id="这是会看到master和dev，而且master上会有一个星号"><a href="#这是会看到master和dev，而且master上会有一个星号" class="headerlink" title="这是会看到master和dev，而且master上会有一个星号"></a>这是会看到master和dev，而且master上会有一个星号</h1><h1 id="这个时候dev是一个本地分支，远程仓库不知道它的存在"><a href="#这个时候dev是一个本地分支，远程仓库不知道它的存在" class="headerlink" title="这个时候dev是一个本地分支，远程仓库不知道它的存在"></a>这个时候dev是一个本地分支，远程仓库不知道它的存在</h1><h1 id="本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步"><a href="#本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步" class="headerlink" title="本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步"></a>本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步</h1></li>
+<li>发布dev分支<br>发布dev分支指的是同步dev分支的代码到远程服务器<br>git push origin dev:dev  # 这样远程仓库也有一个dev分支了</li>
+<li>在dev分支开发代码<br>git checkout dev  # 切换到dev分支进行开发<h1 id="开发代码之后，我们有两个选择"><a href="#开发代码之后，我们有两个选择" class="headerlink" title="开发代码之后，我们有两个选择"></a>开发代码之后，我们有两个选择</h1><h1 id="第一个：如果功能开发完成了，可以合并主分支"><a href="#第一个：如果功能开发完成了，可以合并主分支" class="headerlink" title="第一个：如果功能开发完成了，可以合并主分支"></a>第一个：如果功能开发完成了，可以合并主分支</h1>git checkout master  # 切换到主分支<br>git merge dev  # 把dev分支的更改和master合并<br>git push  # 提交主分支代码远程<br>git checkout dev  # 切换到dev远程分支<br>git push  # 提交dev分支到远程<h1 id="第二个：如果功能没有完成，可以直接推送"><a href="#第二个：如果功能没有完成，可以直接推送" class="headerlink" title="第二个：如果功能没有完成，可以直接推送"></a>第二个：如果功能没有完成，可以直接推送</h1>git push  # 提交到dev远程分支<h1 id="注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么"><a href="#注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么" class="headerlink" title="注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么"></a>注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么</h1></li>
+<li>删除分支<br>git push origin :dev  # 删除远程dev分支，危险命令哦<h1 id="下面两条是删除本地分支"><a href="#下面两条是删除本地分支" class="headerlink" title="下面两条是删除本地分支"></a>下面两条是删除本地分支</h1>git checkout master  # 切换到master分支<br>git branch -d dev  # 删除本地dev分支</li>
+<li>推荐书籍 progit.pdf<br>书籍格式和语言：中文、英文、PDF、ePub<br>下载地址：git-scm.com/book</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/07/Github博客多地同步文章/" rel="next" title="Github博客多地同步文章">
+                  <i class="fa fa-chevron-left"></i> Github博客多地同步文章
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/01/08/Github博客自定义域名/" rel="prev" title="Github博客自定义域名">
+                  Github博客自定义域名 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc">
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这个git路径是无效的，示例而已"><span class="nav-number">1.</span> <span class="nav-text">这个git路径是无效的，示例而已</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#默认有了dev和master分支，所以会看到如下三个分支"><span class="nav-number">2.</span> <span class="nav-text">默认有了dev和master分支，所以会看到如下三个分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#master-本地主分支-origin-master-远程主分支-origin-dev-远程开发分支"><span class="nav-number">3.</span> <span class="nav-text">master[本地主分支] origin/master[远程主分支] origin/dev[远程开发分支]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新克隆下来的代码默认master和origin-master是关联的，也就是他们的代码保持同步"><span class="nav-number">4.</span> <span class="nav-text">新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#但是origin-dev分支在本地没有任何的关联，所以我们无法在那里开发"><span class="nav-number">5.</span> <span class="nav-text">但是origin/dev分支在本地没有任何的关联，所以我们无法在那里开发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建本地分支dev，并且和远程origin-dev分支关联，本地dev分支的初始代码和远程的dev分支代码一样"><span class="nav-number">6.</span> <span class="nav-text">创建本地分支dev，并且和远程origin/dev分支关联，本地dev分支的初始代码和远程的dev分支代码一样</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这个git路径是无效的，示例而已-1"><span class="nav-number">7.</span> <span class="nav-text">这个git路径是无效的，示例而已</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#默认只有master分支，所以会看到如下两个分支"><span class="nav-number">8.</span> <span class="nav-text">默认只有master分支，所以会看到如下两个分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#master-本地主分支-origin-master-远程主分支"><span class="nav-number">9.</span> <span class="nav-text">master[本地主分支] origin/master[远程主分支]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新克隆下来的代码默认master和origin-master是关联的，也就是他们的代码保持同步-1"><span class="nav-number">10.</span> <span class="nav-text">新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是会看到master和dev，而且master上会有一个星号"><span class="nav-number">11.</span> <span class="nav-text">这是会看到master和dev，而且master上会有一个星号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这个时候dev是一个本地分支，远程仓库不知道它的存在"><span class="nav-number">12.</span> <span class="nav-text">这个时候dev是一个本地分支，远程仓库不知道它的存在</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步"><span class="nav-number">13.</span> <span class="nav-text">本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发代码之后，我们有两个选择"><span class="nav-number">14.</span> <span class="nav-text">开发代码之后，我们有两个选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个：如果功能开发完成了，可以合并主分支"><span class="nav-number">15.</span> <span class="nav-text">第一个：如果功能开发完成了，可以合并主分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二个：如果功能没有完成，可以直接推送"><span class="nav-number">16.</span> <span class="nav-text">第二个：如果功能没有完成，可以直接推送</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么"><span class="nav-number">17.</span> <span class="nav-text">注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下面两条是删除本地分支"><span class="nav-number">18.</span> <span class="nav-text">下面两条是删除本地分支</span></a></li></ol></div>
+          </div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LandWind</p>
+  <div class="site-description motion-element" itemprop="description">记录生活点滴</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">Kategorien</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LandWind</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/muse.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
