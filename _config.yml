@@ -76,8 +76,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
-  type: git
-  #elfwalk改为你的github用户名
+  type: git 
   repository: 
     github: https://github.com/maidouofgithub/maidouofgithub.github.io.git
     coding: git@git.coding.net:maidouofgit/maidouofgit.coding.me.git
